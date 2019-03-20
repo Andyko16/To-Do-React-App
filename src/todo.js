@@ -12,6 +12,9 @@ class todo extends React.Component {
 		this.getitems = this.getitems.bind(this);
 		this.deleteitem = this.deleteitem.bind(this);
 		this.completeitem = this.completeitem.bind(this);
+	}
+	
+	componentDidMount(){
 		this.getitems();
 	}
 	
