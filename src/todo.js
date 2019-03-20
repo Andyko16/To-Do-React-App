@@ -25,7 +25,7 @@ class todo extends React.Component {
 	handleadditem(event){
 		event.preventDefault();
 		
-		axios.post('http://hunter-todo-api.herokuapp.com/todo-item',
+		axios.post('https://hunter-todo-api.herokuapp.com/todo-item',
 			{'content' : this.state.item},
 			{ headers : {'sillyauth': this.state.cookies} })
 			.then(response => {
@@ -40,8 +40,8 @@ class todo extends React.Component {
 	
 	getitems(){
 		
-		axios.get('http://hunter-todo-api.herokuapp.com/todo-item',
-			{ headers : {sillyauth: this.state.cookies} })
+		axios.get('https://hunter-todo-api.herokuapp.com/todo-item',
+			{ headers : {'sillyauth': this.state.cookies} })
 		.then(response => {
 			//console.log(response)
 			this.setState({data : response.data})
@@ -52,7 +52,7 @@ class todo extends React.Component {
 		})
 	}		
 	deleteitem(id){
-		axios.delete('http://hunter-todo-api.herokuapp.com/todo-item/' + id,
+		axios.delete('https://hunter-todo-api.herokuapp.com/todo-item/' + id,
 			{ headers : {'sillyauth': this.state.cookies} })
 		.then(response => {
 			//console.log(response)
@@ -65,7 +65,7 @@ class todo extends React.Component {
 		})
 	}	
 	completeitem(id){
-		axios.put('http://hunter-todo-api.herokuapp.com/todo-item/' + id,
+		axios.put('https://hunter-todo-api.herokuapp.com/todo-item/' + id,
 			{'completed' : 1},
 			{headers: {'sillyauth': this.state.cookies}})
 		.then(response => {
