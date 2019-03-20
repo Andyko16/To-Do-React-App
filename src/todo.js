@@ -41,7 +41,7 @@ class todo extends React.Component {
 	getitems(){
 		
 		axios.get('http://hunter-todo-api.herokuapp.com/todo-item',
-			{ headers : {'sillyauth': this.state.cookies} })
+			{ headers : {sillyauth: this.state.cookies} })
 		.then(response => {
 			//console.log(response)
 			this.setState({data : response.data})
@@ -93,7 +93,7 @@ class todo extends React.Component {
 					if(item['completed'])
 					{
 						return (
-							<li>
+							<li key = {item.id} >
 								<del>{item['content']}</del>
 								<button onClick = {this.deleteitem.bind(this, item['id'])}> Delete </button>
 							</li>
@@ -102,7 +102,7 @@ class todo extends React.Component {
 					else
 					{
 						return (
-							<li>
+							<li key = {item.id} >
 								{item['content']} <button onClick = {this.deleteitem.bind(this, item['id'])}> Delete </button>
 								<button onClick = {this.completeitem.bind(this, item['id'])}> Mark Done </button>
 							</li>
